@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
+import Form from './components/Form';
 
-function App() {
+class App extends Component{
+  state={//Aqui incializei state sem ser no construtor
+    visable:true
+  }
+  
+
+
+  render(){
+  console.log(this.state.visable)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form visable={this.state.visable} />
+      <button onClick={_=>this.setState({visable:!this.state.visable})}>Visable or No</button>
     </div>
   );
+  }
 }
 
 export default App;
